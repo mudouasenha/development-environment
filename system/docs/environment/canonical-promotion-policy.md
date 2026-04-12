@@ -30,6 +30,12 @@ For skills specifically:
 
 The deployed runtime path may be a symlink to the authored source. Treat the authored repo as the place where canonical skill edits should happen.
 
+For imported skills that should remain visible but not fully promoted:
+
+- imported-active namespace: `/mnt/c/Development/repos/infra/skills/imported/<source>/...`
+
+These skills are active because they are inside the live skills root, but they are not considered authored canonical skills.
+
 Imported or cached material must not be treated as canonical until it is explicitly promoted.
 
 ## Asset Classes
@@ -67,6 +73,20 @@ Current imported examples:
 - full `codex-user-skills`
 - cached Notion plugin package
 
+### Imported-Active
+
+Use imported-active namespaces for skills that are:
+
+- visible to Codex at runtime
+- preserved with source identity
+- intentionally not promoted into the top-level canonical namespace
+- still expected to remain usable in the live environment
+
+Current imported-active examples:
+
+- `imported/anthropic/*`
+- `imported/dotnet/*`
+
 ### Runtime-Only
 
 Keep runtime-only state in user home. Do not migrate it into the shared workspace.
@@ -102,9 +122,10 @@ If any of those are false, keep the asset in `sources/*`.
    - replacement promotion
    - keep imported only
 4. Copy or sync into the canonical root.
-5. Update registry metadata.
-6. Update environment documentation if behavior changes.
-7. Re-run `verify-links.sh` if the promotion affects live Codex use.
+5. If the asset should be active but not promoted, keep it under `imported/<source>/...` instead of top-level canonical.
+6. Update registry metadata or provenance files.
+7. Update environment documentation if behavior changes.
+8. Re-run `verify-links.sh` if the promotion affects live Codex use.
 
 ## Replacement Rules
 

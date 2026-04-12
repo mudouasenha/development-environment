@@ -109,6 +109,7 @@ Current canonical decisions:
 - it was initially populated from `.agents/skills/skills`
 - `/mnt/c/Development/repos/infra/skills` is now the authored and versioned canonical skills repository
 - `/mnt/c/Development/system/ai/skills` should point to that repo as the deployed runtime path
+- imported-active skill packs may live under labeled namespaces inside that repo, such as `imported/anthropic/*` and `imported/dotnet/*`
 - selected user-level skills were promoted:
   - `~/.codex/skills/.system/*`
   - `~/.codex/skills/gsd-*`
@@ -119,6 +120,12 @@ Current imported examples:
 - `system/ai/sources/imported-skills/dotnet-skills`
 - `system/ai/sources/imported-skills/codex-user-skills`
 - `system/ai/sources/imported-plugins/notion-openai-curated/...`
+
+Imported-active rule:
+
+- if an imported skill pack should be visible to Codex without full promotion, place it under `repos/infra/skills/imported/<source>/...`
+- keep the source namespace and provenance intact
+- do not flatten imported skills into the top-level canonical namespace unless they are explicitly promoted
 
 The governing rule is simple:
 
