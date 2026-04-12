@@ -1,0 +1,10 @@
+knowledge/
+repos/
+archive/
+inbox/
+.codex
+system/*
+!system/docs/
+system/docs/*
+!system/docs/environment/
+!system/docs/environment/**
