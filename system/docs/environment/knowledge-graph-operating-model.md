@@ -48,6 +48,19 @@ Use this model:
 
 These layers should reinforce each other, not compete.
 
+The knowledge layer is also versioned as its own Git repository at:
+
+- `/mnt/c/Development/knowledge`
+
+That repository intentionally includes:
+
+- knowledge content
+- logs
+- raw source material that is safe to retain
+- shared Obsidian vault configuration
+
+It intentionally excludes transient local vault state and runtime-only noise through `.gitignore`.
+
 ## When To Update The Graph
 
 Update or link a knowledge note when work changes:

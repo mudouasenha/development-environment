@@ -186,6 +186,32 @@ Use this layer for:
 
 This is a documentation and knowledge system, not the live runtime source of truth.
 
+## Versioning
+
+Two environment-level areas are now versioned separately:
+
+- `/mnt/c/Development/knowledge`
+  - separate Git repo for knowledge content, logs, raw sources, and shared Obsidian vault configuration
+- `/mnt/c/Development`
+  - separate Git repo for environment governance files and `system/docs/environment`
+
+This keeps durable knowledge and environment governance backed up without forcing the entire `/mnt/c/Development` tree into one repository.
+
+Do not version:
+
+- `~/.codex`
+- runtime secrets
+- session state
+- imported caches or disposable tool state unless there is an explicit retention reason
+
+The `/mnt/c/Development` environment repo should include:
+
+- `AGENTS.md`
+- `README.md`
+- `REMOTE-SETUP.md`
+- `development.code-workspace`
+- `system/docs/environment/**`
+
 ## Knowledge Workflows
 
 The knowledge graph follows a hybrid workflow:
@@ -218,7 +244,8 @@ Recommended use:
 2. Read `/mnt/c/Development/AGENTS.md` if you need the current root instructions.
 3. Work from repos under `/mnt/c/Development/repos`.
 4. Use the knowledge graph when architecture or flow context matters.
-5. Keep environment-level changes inside `/mnt/c/Development/system`.
+5. Keep commits in `knowledge` and `system/docs/environment` scoped to their own truth domains.
+6. Keep environment-level changes inside `/mnt/c/Development/system`.
 
 ## Maintenance Workflow
 
