@@ -71,6 +71,12 @@ Why:
 
 This makes the AI layer easier to document, maintain, and evolve.
 
+For canonical skills, the preferred authored source is:
+
+- `/mnt/c/Development/repos/infra/skills`
+
+The shared runtime path under `system/ai/skills` should point to that authored repo instead of becoming a second independently edited copy.
+
 ## Decision 5: Keep Codex Runtime State User-Scoped
 
 Codex still uses `~/.codex` for:

@@ -23,6 +23,13 @@ For the current setup, that means:
 - canonical shared agents: `/mnt/c/Development/system/ai/agents`
 - canonical shared plugin bundles: `/mnt/c/Development/system/ai/plugins/shared/*`
 
+For skills specifically:
+
+- authored canonical source: `/mnt/c/Development/repos/infra/skills`
+- deployed runtime path: `/mnt/c/Development/system/ai/skills`
+
+The deployed runtime path may be a symlink to the authored source. Treat the authored repo as the place where canonical skill edits should happen.
+
 Imported or cached material must not be treated as canonical until it is explicitly promoted.
 
 ## Asset Classes

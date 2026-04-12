@@ -107,6 +107,8 @@ Current canonical decisions:
 
 - `/mnt/c/Development/system/ai/skills` is the canonical shared skills root
 - it was initially populated from `.agents/skills/skills`
+- `/mnt/c/Development/repos/infra/skills` is now the authored and versioned canonical skills repository
+- `/mnt/c/Development/system/ai/skills` should point to that repo as the deployed runtime path
 - selected user-level skills were promoted:
   - `~/.codex/skills/.system/*`
   - `~/.codex/skills/gsd-*`
