@@ -58,6 +58,12 @@ Status: Active
 - Registry metadata:
   - `/mnt/c/Development/system/ai/registry`
 
+Canonical skills are authored in the nested Git repository:
+
+- `/mnt/c/Development/repos/infra/skills`
+
+When skill files change, stage and commit them in that repository, not in `/mnt/c/Development`.
+
 ## Repository Groups
 
 - Product:
