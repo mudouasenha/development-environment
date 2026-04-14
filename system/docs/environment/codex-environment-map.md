@@ -59,6 +59,8 @@ Separate user-scoped runtime state from workspace-scoped shared AI assets.
 - Event: `SessionStart`
 - Command: `node /home/matheus/.codex/get-shit-done/hooks/gsd-update-check.js`
 - Purpose: run the GSD update check at session start
+- Observed hook surface also includes `PreToolUse` in local plugin docs
+- No documented skill-level hook event observed for `SkillInvoked` or `SkillLoaded`
 
 ## Workspace-Level Shared Assets
 
@@ -93,6 +95,29 @@ Separate user-scoped runtime state from workspace-scoped shared AI assets.
   - `canonical workspace skills`
   - `promoted Codex system skills`
   - `promoted GSD skills`
+  - `imported-active infrastructure skills under source namespaces`
+
+### Canonical Infra Tooling Layer
+
+- Authored source of infra tooling wrappers: `/mnt/c/Development/repos/infra/skills`
+- Bootstrap skill: `/mnt/c/Development/repos/infra/skills/infra-tooling-bootstrap`
+- Wrapper skills:
+  - `/mnt/c/Development/repos/infra/skills/tflint`
+  - `/mnt/c/Development/repos/infra/skills/infracost`
+  - `/mnt/c/Development/repos/infra/skills/gcp-recommender`
+- Shared pinned version manifest:
+  - `/mnt/c/Development/repos/infra/skills/infra-tooling-bootstrap/references/tool-versions.env`
+- Shared bootstrap script:
+  - `/mnt/c/Development/repos/infra/skills/infra-tooling-bootstrap/scripts/bootstrap-infra-tools.sh`
+
+### Infra Tooling Policy
+
+- CLI wrapper skills belong in the canonical skills repo.
+- Tool versions are pinned in the manifest and validated before use.
+- Downloaded binaries do not belong in the repository.
+- User-local install locations such as `~/.local/bin` are preferred for pinned CLI tools.
+- `gcloud` is treated as an externally managed dependency that is validated, not vendored.
+- Runtime platform products such as OpenCost and Kubecost belong in infrastructure code and cluster operations, not in the workstation tool bootstrap path.
 
 ## Adapter / Mount Strategy
 
@@ -150,6 +175,7 @@ Keep these user-level paths local even after migration:
 - Shell wrapper requirement: `prefix all commands with rtk`
 - Documentation source of truth: `/mnt/c/Development/knowledge` and `/mnt/c/Development/knowledge/Knowledge Graph`
 - Editing constraints: keep runtime secrets out of the shared workspace and prefer shared AI assets under `/mnt/c/Development/system/ai`
+- Infra tooling rule: keep CLI wrappers and version pins in `/mnt/c/Development/repos/infra/skills`, but keep installed binaries outside the repo
 
 ## Knowledge / Documentation Layer
 
@@ -188,5 +214,6 @@ Shared skills root: /mnt/c/Development/system/ai/skills
 Shared agents root: /mnt/c/Development/system/ai/agents
 Knowledge graph root: /mnt/c/Development/knowledge/Knowledge Graph
 Root instruction file: /mnt/c/Development/AGENTS.md
-Notes: runtime state remains in ~/.codex; shared AI assets are workspace-owned and mounted by symlink
+Infra tooling manifest: /mnt/c/Development/repos/infra/skills/infra-tooling-bootstrap/references/tool-versions.env
+Notes: runtime state remains in ~/.codex; shared AI assets are workspace-owned and mounted by symlink; infra CLI binaries are user-local and version-pinned by canonical wrapper skills
 ```

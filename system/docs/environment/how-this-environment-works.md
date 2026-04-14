@@ -110,9 +110,22 @@ Current canonical decisions:
 - `/mnt/c/Development/repos/infra/skills` is now the authored and versioned canonical skills repository
 - `/mnt/c/Development/system/ai/skills` should point to that repo as the deployed runtime path
 - imported-active skill packs may live under labeled namespaces inside that repo, such as `imported/anthropic/*` and `imported/dotnet/*`
+- infrastructure CLI wrapper skills also live in that repo, including:
+  - `infra-tooling-bootstrap`
+  - `tflint`
+  - `infracost`
+  - `gcp-recommender`
 - selected user-level skills were promoted:
   - `~/.codex/skills/.system/*`
   - `~/.codex/skills/gsd-*`
+
+Current canonical infrastructure tooling decisions:
+
+- pinned infra tool versions live in `/mnt/c/Development/repos/infra/skills/infra-tooling-bootstrap/references/tool-versions.env`
+- the shared bootstrap workflow lives in `/mnt/c/Development/repos/infra/skills/infra-tooling-bootstrap/scripts/bootstrap-infra-tools.sh`
+- `tflint` and `infracost` are installed into a user-local bin directory, not committed into the repo
+- `gcloud` is validated by canonical skills but remains an externally managed dependency
+- runtime platform services such as OpenCost and Kubecost are managed through infrastructure code and cluster operations, not the workstation bootstrap path
 
 Current imported examples:
 
