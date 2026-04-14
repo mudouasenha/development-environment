@@ -1,8 +1,58 @@
 {
   "folders": [
     {
-      "path": "/Development"
+      "path": "/mnt/c/Development"
+    },
+    {
+      "name": "portfolio",
+      "path": "/mnt/c/Development/repos/lab/personal-projects/portfolio"
     }
   ],
-  "settings": {}
+  "settings": {},
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "portfolio: vite dev",
+        "type": "npm",
+        "script": "dev",
+        "path": "portfolio",
+        "isBackground": true,
+        "problemMatcher": {
+          "owner": "custom",
+          "pattern": {
+            "regexp": "^$"
+          },
+          "background": {
+            "activeOnStart": true,
+            "beginsPattern": ".*",
+            "endsPattern": "Local:\\s+http://127\\.0\\.0\\.1:5173/|Local:\\s+http://localhost:5173/"
+          }
+        }
+      }
+    ]
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Portfolio: Debug Chrome",
+        "type": "pwa-chrome",
+        "request": "launch",
+        "url": "http://127.0.0.1:5173",
+        "webRoot": "${workspaceFolder:portfolio}",
+        "preLaunchTask": "portfolio: vite dev",
+        "sourceMaps": true
+      },
+      {
+        "name": "Portfolio: Debug Edge",
+        "type": "pwa-msedge",
+        "request": "launch",
+        "url": "http://127.0.0.1:5173",
+        "webRoot": "${workspaceFolder:portfolio}",
+        "preLaunchTask": "portfolio: vite dev",
+        "sourceMaps": true
+      }
+    ]
+  }
 }
