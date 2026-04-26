@@ -59,6 +59,9 @@ Separate user-scoped runtime state from workspace-scoped shared AI assets.
 - Event: `SessionStart`
 - Command: `node /home/matheus/.codex/get-shit-done/hooks/gsd-update-check.js`
 - Purpose: run the GSD update check at session start
+- Event: `SessionStart`
+- Command: `node /mnt/c/Development/system/ai/adapters/codex/session-start.js`
+- Purpose: sync workspace-managed MCP server manifests into the user runtime config
 - Observed hook surface also includes `PreToolUse` in local plugin docs
 - No documented skill-level hook event observed for `SkillInvoked` or `SkillLoaded`
 
@@ -81,6 +84,7 @@ Separate user-scoped runtime state from workspace-scoped shared AI assets.
 - Plugins: `/mnt/c/Development/system/ai/plugins`
 - Skills: `/mnt/c/Development/system/ai/skills`
 - Registry: `/mnt/c/Development/system/ai/registry`
+- MCP registry: `/mnt/c/Development/system/ai/registry/mcp`
 - Imported sources: `/mnt/c/Development/system/ai/sources`
 - Supporting docs: `/mnt/c/Development/system/docs/environment`
 
@@ -140,6 +144,8 @@ Keep these user-level paths local even after migration:
 - `/home/matheus/.codex/tmp`
 - `/home/matheus/.codex/plugins`
 
+Managed MCP realizations are written into `/home/matheus/.codex/config.toml`, but the manifest source of truth lives under `/mnt/c/Development/system/ai/registry/mcp`.
+
 ### Rationale
 
 - Why Codex still needs the user runtime home: it stores identity, auth, sessions, approvals, runtime state, and plugin cache there
@@ -162,6 +168,7 @@ Keep these user-level paths local even after migration:
 - Sub-agents: `yes`
 - MCP servers / apps:
   - `Notion`
+  - Workspace-managed MCP registry synchronized into `~/.codex/config.toml`
 
 ## Workspace Instruction Layer
 

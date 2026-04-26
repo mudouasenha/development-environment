@@ -127,12 +127,11 @@ Current canonical infrastructure tooling decisions:
 - `gcloud` is validated by canonical skills but remains an externally managed dependency
 - runtime platform services such as OpenCost and Kubecost are managed through infrastructure code and cluster operations, not the workstation bootstrap path
 
-Current imported examples:
+Current imported sources are tracked in:
 
-- `system/ai/sources/imported-skills/anthropic-skills`
-- `system/ai/sources/imported-skills/dotnet-skills`
-- `system/ai/sources/imported-skills/codex-user-skills`
-- `system/ai/sources/imported-plugins/notion-openai-curated/...`
+- `/mnt/c/Development/system/ai/sources/imported-skills/SOURCES.md`
+
+Key sources include Anthropic, dotnet, Codex User Skills, HashiCorp, and Anton Babenko.
 
 Imported-active rule:
 
@@ -179,6 +178,27 @@ This gives you:
 - personal runtime state
 - shared reusable capability
 - one centralized environment root
+
+## Shared MCP Workflow
+
+Workspace-managed MCP servers follow the same ownership split:
+
+- manifest source of truth: `/mnt/c/Development/system/ai/registry/mcp/*.json`
+- runtime realization: `~/.codex/config.toml`
+
+The adapter scripts live in:
+
+- `/mnt/c/Development/system/ai/adapters/codex`
+
+The main sync entrypoint is:
+
+- `/mnt/c/Development/system/ai/adapters/codex/sync-mcp-servers.js`
+
+The session bootstrap hook is:
+
+- `/mnt/c/Development/system/ai/adapters/codex/session-start.js`
+
+The sync writes a managed block into `config.toml` and leaves unmanaged MCP entries alone. This keeps shared MCP definitions versioned in the workspace without collapsing all user runtime state into the shared tree.
 
 ## Knowledge Layer
 
