@@ -1,8 +1,17 @@
 knowledge/
 repos/
+tools/
 archive/
 inbox/
 .codex
+
+# Local browser, test, and workspace artifacts
+/.playwright-mcp/
+/test-results/
+/worktrees/
+/.webui_secret_key
+/*.png
+
 system/*
 !system/docs/
 system/docs/*

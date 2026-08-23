@@ -53,7 +53,6 @@ Current canonical examples:
 
 - workspace shared skills from `.agents/skills/skills`
 - promoted Codex `.system/*` skills
-- promoted `gsd-*` skills
 - shared agent definitions under `system/ai/agents`
 
 ### Imported
@@ -151,7 +150,7 @@ Do not:
 These decisions are already in force:
 
 - `.agents/skills/skills` is the canonical base for shared skills
-- `~/.codex/skills/.system/*` and `gsd-*` are promoted into canonical
+- `~/.codex/skills/.system/*` is promoted into canonical
 - `anthropic-skills`, `.net-skills`, and the full `codex-user-skills` tree remain imported
 - Notion plugin cache remains imported, not canonical
 

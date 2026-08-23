@@ -57,9 +57,6 @@ Separate user-scoped runtime state from workspace-scoped shared AI assets.
 ### Hooks
 
 - Event: `SessionStart`
-- Command: `node /home/matheus/.codex/get-shit-done/hooks/gsd-update-check.js`
-- Purpose: run the GSD update check at session start
-- Event: `SessionStart`
 - Command: `node /mnt/c/Development/system/ai/adapters/codex/session-start.js`
 - Purpose: sync workspace-managed MCP server manifests into the user runtime config
 - Observed hook surface also includes `PreToolUse` in local plugin docs
@@ -79,6 +76,7 @@ Separate user-scoped runtime state from workspace-scoped shared AI assets.
 
 ### Shared Directories
 
+- Tools workspaces: `/mnt/c/Development/tools`
 - Adapters: `/mnt/c/Development/system/ai/adapters`
 - Agents: `/mnt/c/Development/system/ai/agents`
 - Plugins: `/mnt/c/Development/system/ai/plugins`
@@ -88,17 +86,19 @@ Separate user-scoped runtime state from workspace-scoped shared AI assets.
 - Imported sources: `/mnt/c/Development/system/ai/sources`
 - Supporting docs: `/mnt/c/Development/system/docs/environment`
 
+Current tool workspaces:
+
+- `/mnt/c/Development/tools/career-ops`
+- `/mnt/c/Development/tools/open-design`
+
 ### Installed Shared Capabilities
 
-- Agent packs:
-  - `GSD agents`
 - Plugin bundles:
   - `superpowers`
   - `.NET plugin pack`
 - Skill libraries:
   - `canonical workspace skills`
   - `promoted Codex system skills`
-  - `promoted GSD skills`
   - `imported-active infrastructure skills under source namespaces`
 
 ### Canonical Infra Tooling Layer

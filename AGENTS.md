@@ -39,6 +39,15 @@ Environment governance is versioned in this Git repository at:
 
 - `/mnt/c/Development`
 
+Local tool and utility workspaces that should stay outside this environment repo live under:
+
+- `/mnt/c/Development/tools`
+
+Current examples:
+
+- `/mnt/c/Development/tools/career-ops`
+- `/mnt/c/Development/tools/open-design`
+
 Knowledge is versioned separately at:
 
 - `/mnt/c/Development/knowledge`

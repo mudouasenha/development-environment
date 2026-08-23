@@ -27,6 +27,8 @@ The main directories under `/mnt/c/Development` are:
   - VS Code workspace file for opening the full environment
 - `AGENTS.md`
   - root working instructions for Codex
+- `tools/`
+  - local tool and utility workspaces kept outside the environment repo
 - `repos/`
   - grouped project repositories
 - `system/`
@@ -66,6 +68,28 @@ Current grouped layout:
 - `repos/archive/devops-directive-kubernetes-course`
 
 These are copied working roots. The old source locations were not deleted.
+
+## Tools Workspace
+
+Some cloned repositories are kept in a top-level tools bucket instead of under `repos/`.
+
+Use `tools/` for:
+
+- local utility workspaces
+- standalone operator tooling
+- external projects you want available in the shared development root but do not want tracked by the `/mnt/c/Development` environment repo
+
+Current examples:
+
+- `tools/career-ops`
+- `tools/open-design`
+
+Policy:
+
+- `tools/` is for local working copies, not canonical shared environment infrastructure
+- shared AI assets still belong under `system/ai`
+- grouped long-term project repositories still belong under `repos/`
+- `tools/` is ignored by the environment repo
 
 ## Shared AI Layer
 
@@ -117,7 +141,6 @@ Current canonical decisions:
   - `gcp-recommender`
 - selected user-level skills were promoted:
   - `~/.codex/skills/.system/*`
-  - `~/.codex/skills/gsd-*`
 
 Current canonical infrastructure tooling decisions:
 
@@ -254,6 +277,8 @@ The `/mnt/c/Development` environment repo should include:
 - `development.code-workspace`
 - `system/docs/environment/**`
 
+It should not include local tool workspaces under `tools/`.
+
 ## Knowledge Workflows
 
 The knowledge graph follows a hybrid workflow:
@@ -284,7 +309,7 @@ Recommended use:
 
 1. Open `/mnt/c/Development/development.code-workspace`.
 2. Read `/mnt/c/Development/AGENTS.md` if you need the current root instructions.
-3. Work from repos under `/mnt/c/Development/repos`.
+3. Work from repos under `/mnt/c/Development/repos` or local tool workspaces under `/mnt/c/Development/tools`, depending on the asset type.
 4. Use the knowledge graph when architecture or flow context matters.
 5. Keep commits in `knowledge` and `system/docs/environment` scoped to their own truth domains.
 6. Keep environment-level changes inside `/mnt/c/Development/system`.
