@@ -14,6 +14,8 @@ Status: Active
 
 - Environment map:
   - `/mnt/c/Development/system/docs/environment/codex-environment-map.md`
+- Shared memory integration:
+  - `/mnt/c/Development/system/docs/environment/hindsight-memory-integration.md`
 - Design rationale:
   - `/mnt/c/Development/system/docs/environment/environment-design-rationale.md`
 - Canonical promotion policy:

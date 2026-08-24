@@ -146,6 +146,20 @@ Keep these user-level paths local even after migration:
 
 Managed MCP realizations are written into `/home/matheus/.codex/config.toml`, but the manifest source of truth lives under `/mnt/c/Development/system/ai/registry/mcp`.
 
+## Shared Experiential Memory
+
+Hindsight is the official environment-wide memory provider for experiential memory across supported coding agents.
+
+- Provider: Hindsight self-hosted Docker deployment
+- API: `http://localhost:8888`
+- Persistent database: Docker named volume `hindsight-data`
+- Hermes: `memory.provider: hindsight`, with the Hindsight plugin active
+- Codex: user-scoped Hindsight MCP realization in `~/.codex/config.toml`
+- Claude Code and OpenCode: user-scoped Hindsight coding-agent integrations
+- Canonical operational reference: `/mnt/c/Development/system/docs/environment/hindsight-memory-integration.md`
+
+Runtime credentials and integration files remain outside the versioned workspace. Hindsight stores experiential memory; the knowledge graph remains the source of curated conceptual and historical truth.
+
 ### Rationale
 
 - Why Codex still needs the user runtime home: it stores identity, auth, sessions, approvals, runtime state, and plugin cache there
@@ -221,6 +235,7 @@ Shared skills root: /mnt/c/Development/system/ai/skills
 Shared agents root: /mnt/c/Development/system/ai/agents
 Knowledge graph root: /mnt/c/Development/knowledge/Knowledge Graph
 Root instruction file: /mnt/c/Development/AGENTS.md
+Shared experiential memory: Hindsight at http://localhost:8888
 Infra tooling manifest: /mnt/c/Development/repos/infra/skills/infra-tooling-bootstrap/references/tool-versions.env
 Notes: runtime state remains in ~/.codex; shared AI assets are workspace-owned and mounted by symlink; infra CLI binaries are user-local and version-pinned by canonical wrapper skills
 ```

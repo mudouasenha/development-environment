@@ -251,6 +251,18 @@ Use this layer for:
 
 This is a documentation and knowledge system, not the live runtime source of truth.
 
+## Shared Experiential Memory
+
+Hindsight is the official shared experiential-memory provider for the development environment. It is available to the supported agent integrations, including Hermes, Codex, Claude Code, and OpenCode.
+
+- Hindsight API: `http://localhost:8888`
+- Hindsight Control Plane: `http://127.0.0.1:9999`
+- Docker setup: `/mnt/c/Development/tools/hindsight_memory_kit/hindsight-setup`
+- Persistent database: Docker named volume `hindsight-data`
+- Operational details: [Hindsight Shared Memory Integration](hindsight-memory-integration.md)
+
+Use Hindsight for reusable experience such as preferences, lessons, and workflow outcomes. Do not use it as a replacement for the curated knowledge graph, environment documentation, or executable code.
+
 ## Versioning
 
 Two environment-level areas are now versioned separately:
