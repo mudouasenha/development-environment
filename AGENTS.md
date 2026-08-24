@@ -81,3 +81,11 @@ When a change affects architecture, contracts, product flows, or environment pol
 - update `/mnt/c/Development/system/docs/environment` if the change affects operational environment truth
 
 Code is the executable truth. Environment docs are the operational truth. The knowledge graph is the conceptual and historical truth.
+
+## Shared Experiential Memory
+
+Hindsight is the official shared experiential-memory provider for agents working under this environment, including Hermes, Codex, Claude Code, and OpenCode.
+
+- Use the configured Hindsight integration for reusable preferences, lessons learned, and workflow outcomes when they are relevant to future work.
+- Keep architecture intent, contracts, and curated historical decisions in the knowledge graph; keep operational wiring in environment docs.
+- Keep secrets, credentials, authentication codes, and raw private runtime configuration out of Hindsight and the knowledge graph.
