@@ -1,6 +1,6 @@
 # Hindsight Shared Memory Integration
 
-Date: 2026-08-24
+Date: 2026-08-25
 Status: Active
 
 ## Decision
@@ -13,6 +13,17 @@ Hindsight is the official shared experiential-memory provider for the `/mnt/c/De
 - OpenCode
 
 The provider is self-hosted through Docker Compose and is intentionally separate from the tracked documentation and knowledge repositories.
+
+## Shared Personal Bank Convention
+
+The Hindsight bank `matheusgomes` is the shared personal/user-profile bank for Hermes and `work-pc-hermes`.
+
+- Durable personal facts about Matheus belong in `matheusgomes`.
+- This includes preferences, hobbies, interests, life context, and communication style.
+- Operational and engineering memories remain in each agent's own operational bank.
+- The convention was proposed through A2A context `workpc-setup-verify` and explicitly approved by Matheus on 2026-08-25.
+
+This is a routing convention, not a change to Hindsight's truth-domain boundaries: personal memory remains experiential memory, while architecture and operational policy remain in the knowledge graph and environment documents respectively. Runtime integrations must not expose API keys or other secrets in tracked files.
 
 ## Runtime Service
 
@@ -89,6 +100,7 @@ curl -fsS http://127.0.0.1:8888/health
 - Create and verify backups before upgrades.
 - Do not run `docker compose down -v` casually; it can remove Hindsight data and authentication volumes.
 - Keep agent runtime credentials and generated integration files in user home.
+- Route shared personal-memory writes to `matheusgomes`; keep agent operational-memory writes local to the agent's configured operational bank.
 - When changing the provider or integration model, update this document and the related knowledge note together.
 
 ## Related Documents

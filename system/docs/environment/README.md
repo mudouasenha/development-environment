@@ -25,3 +25,4 @@ Current environment references:
 - [Codex Environment Map](/mnt/c/Development/system/docs/environment/codex-environment-map.md)
 - [How This Environment Works](/mnt/c/Development/system/docs/environment/how-this-environment-works.md)
 - [Hindsight Shared Memory Integration](/mnt/c/Development/system/docs/environment/hindsight-memory-integration.md)
+- [9Router Local Inference Routing](/mnt/c/Development/system/docs/environment/9router-local-inference-routing.md)

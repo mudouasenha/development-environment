@@ -263,6 +263,8 @@ Hindsight is the official shared experiential-memory provider for the developmen
 
 Use Hindsight for reusable experience such as preferences, lessons, and workflow outcomes. Do not use it as a replacement for the curated knowledge graph, environment documentation, or executable code.
 
+Shared personal-memory routing is explicit: `matheusgomes` is the shared personal/user-profile bank for Hermes and `work-pc-hermes`; each agent keeps its operational and engineering memories in its own operational bank.
+
 ## Versioning
 
 Two environment-level areas are now versioned separately:

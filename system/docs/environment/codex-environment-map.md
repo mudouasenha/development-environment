@@ -158,6 +158,12 @@ Hindsight is the official environment-wide memory provider for experiential memo
 - Claude Code and OpenCode: user-scoped Hindsight coding-agent integrations
 - Canonical operational reference: `/mnt/c/Development/system/docs/environment/hindsight-memory-integration.md`
 
+### Bank Routing Convention
+
+- Shared personal/user-profile bank for Hermes and `work-pc-hermes`: `matheusgomes`
+- Personal facts about Matheus are routed there.
+- Operational and engineering memories remain in each agent's own operational bank.
+
 Runtime credentials and integration files remain outside the versioned workspace. Hindsight stores experiential memory; the knowledge graph remains the source of curated conceptual and historical truth.
 
 ### Rationale
