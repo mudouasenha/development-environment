@@ -76,7 +76,7 @@ For non-interactive or isolated workflows:
 
 The canonical shared skill is:
 
-- `/mnt/c/Development/repos/infra/skills/notebooklm/SKILL.md`
+- `/mnt/c/Development/repos/infra/skills/skills/notebooklm/SKILL.md`
 
 The live runtime path resolves through:
 
@@ -108,6 +108,6 @@ NotebookLM outputs are not automatically durable. If an output matters after the
 
 ## Related
 
-- `repos/infra/skills/notebooklm/SKILL.md`
+- `repos/infra/skills/skills/notebooklm/SKILL.md`
 - `knowledge/Knowledge Graph/05 Research/Developer Tooling/NotebookLM CLI Evaluation.md`
 - `system/docs/environment/hybrid-knowledge-workflow.md`

@@ -25,14 +25,15 @@ For the current setup, that means:
 
 For skills specifically:
 
-- authored canonical source: `/mnt/c/Development/repos/infra/skills`
+- authored canonical repository root: `/mnt/c/Development/repos/infra/skills`
+- authored canonical content root: `/mnt/c/Development/repos/infra/skills/skills`
 - deployed runtime path: `/mnt/c/Development/system/ai/skills`
 
-The deployed runtime path may be a symlink to the authored source. Treat the authored repo as the place where canonical skill edits should happen.
+The deployed runtime path may be a symlink to the authored content root. Treat the nested repository as the versioning boundary and the nested content root as the place where canonical skill edits should happen.
 
 For imported skills that should remain visible but not fully promoted:
 
-- imported-active namespace: `/mnt/c/Development/repos/infra/skills/imported/<source>/...`
+- imported-active namespace: `/mnt/c/Development/repos/infra/skills/skills/imported/<source>/...`
 
 These skills are active because they are inside the live skills root, but they are not considered authored canonical skills.
 
@@ -149,7 +150,8 @@ Do not:
 
 These decisions are already in force:
 
-- `.agents/skills/skills` is the canonical base for shared skills
+- `.agents/skills/skills` was the canonical base for shared skills before repository migration
+- `/mnt/c/Development/repos/infra/skills/skills` is the authored canonical content root
 - `~/.codex/skills/.system/*` is promoted into canonical
 - `anthropic-skills`, `.net-skills`, and the full `codex-user-skills` tree remain imported
 - Notion plugin cache remains imported, not canonical

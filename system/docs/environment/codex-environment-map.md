@@ -103,16 +103,18 @@ Current tool workspaces:
 
 ### Canonical Infra Tooling Layer
 
-- Authored source of infra tooling wrappers: `/mnt/c/Development/repos/infra/skills`
-- Bootstrap skill: `/mnt/c/Development/repos/infra/skills/infra-tooling-bootstrap`
+- Nested Git repository root: `/mnt/c/Development/repos/infra/skills`
+- Authored skill-content root: `/mnt/c/Development/repos/infra/skills/skills`
+- Authored source of infra tooling wrappers: `/mnt/c/Development/repos/infra/skills/skills`
+- Bootstrap skill: `/mnt/c/Development/repos/infra/skills/skills/infra-tooling-bootstrap`
 - Wrapper skills:
-  - `/mnt/c/Development/repos/infra/skills/tflint`
-  - `/mnt/c/Development/repos/infra/skills/infracost`
-  - `/mnt/c/Development/repos/infra/skills/gcp-recommender`
+  - `/mnt/c/Development/repos/infra/skills/skills/tflint`
+  - `/mnt/c/Development/repos/infra/skills/skills/infracost`
+  - `/mnt/c/Development/repos/infra/skills/skills/gcp-recommender`
 - Shared pinned version manifest:
-  - `/mnt/c/Development/repos/infra/skills/infra-tooling-bootstrap/references/tool-versions.env`
+  - `/mnt/c/Development/repos/infra/skills/skills/infra-tooling-bootstrap/references/tool-versions.env`
 - Shared bootstrap script:
-  - `/mnt/c/Development/repos/infra/skills/infra-tooling-bootstrap/scripts/bootstrap-infra-tools.sh`
+  - `/mnt/c/Development/repos/infra/skills/skills/infra-tooling-bootstrap/scripts/bootstrap-infra-tools.sh`
 
 ### Infra Tooling Policy
 
@@ -202,7 +204,7 @@ Runtime credentials and integration files remain outside the versioned workspace
 - Shell wrapper requirement: `prefix all commands with rtk`
 - Documentation source of truth: `/mnt/c/Development/knowledge` and `/mnt/c/Development/knowledge/Knowledge Graph`
 - Editing constraints: keep runtime secrets out of the shared workspace and prefer shared AI assets under `/mnt/c/Development/system/ai`
-- Infra tooling rule: keep CLI wrappers and version pins in `/mnt/c/Development/repos/infra/skills`, but keep installed binaries outside the repo
+- Infra tooling rule: keep CLI wrappers and version pins in `/mnt/c/Development/repos/infra/skills/skills`, but keep installed binaries outside the repo
 
 ## Knowledge / Documentation Layer
 
@@ -242,6 +244,6 @@ Shared agents root: /mnt/c/Development/system/ai/agents
 Knowledge graph root: /mnt/c/Development/knowledge/Knowledge Graph
 Root instruction file: /mnt/c/Development/AGENTS.md
 Shared experiential memory: Hindsight at http://localhost:8888
-Infra tooling manifest: /mnt/c/Development/repos/infra/skills/infra-tooling-bootstrap/references/tool-versions.env
+Infra tooling manifest: /mnt/c/Development/repos/infra/skills/skills/infra-tooling-bootstrap/references/tool-versions.env
 Notes: runtime state remains in ~/.codex; shared AI assets are workspace-owned and mounted by symlink; infra CLI binaries are user-local and version-pinned by canonical wrapper skills
 ```

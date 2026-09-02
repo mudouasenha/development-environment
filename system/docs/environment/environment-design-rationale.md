@@ -71,11 +71,15 @@ Why:
 
 This makes the AI layer easier to document, maintain, and evolve.
 
-For canonical skills, the preferred authored source is:
+For canonical skills, the nested Git repository root is:
 
 - `/mnt/c/Development/repos/infra/skills`
 
-The shared runtime path under `system/ai/skills` should point to that authored repo instead of becoming a second independently edited copy.
+The authored skill-content root inside that repository is:
+
+- `/mnt/c/Development/repos/infra/skills/skills`
+
+The shared runtime path under `system/ai/skills` should point to that content root instead of becoming a second independently edited copy.
 
 ## Decision 5: Keep Codex Runtime State User-Scoped
 

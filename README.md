@@ -60,9 +60,12 @@ Status: Active
 - Registry metadata:
   - `/mnt/c/Development/system/ai/registry`
 
-Canonical skills are authored in the nested Git repository:
+Canonical skills use a repository root distinct from the authored content root:
 
 - `/mnt/c/Development/repos/infra/skills`
+- `/mnt/c/Development/repos/infra/skills/skills`
+
+The first path is the nested Git repository root; the second is the authored skill-content root. The deployed runtime bridge remains `/mnt/c/Development/system/ai/skills`.
 
 When skill files change, stage and commit them in that repository, not in `/mnt/c/Development`.
 

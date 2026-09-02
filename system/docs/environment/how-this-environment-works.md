@@ -64,6 +64,9 @@ Current grouped layout:
 - `repos/lab/next-app`
 - `repos/lab/next-ph`
 - `repos/infra/skills`
+  - nested Git repository root for canonical skills
+- `repos/infra/skills/skills`
+  - authored canonical skill-content root
 - `repos/archive/booking-modular-monolith`
 - `repos/archive/devops-directive-kubernetes-course`
 
@@ -131,8 +134,9 @@ Current canonical decisions:
 
 - `/mnt/c/Development/system/ai/skills` is the canonical shared skills root
 - it was initially populated from `.agents/skills/skills`
-- `/mnt/c/Development/repos/infra/skills` is now the authored and versioned canonical skills repository
-- `/mnt/c/Development/system/ai/skills` should point to that repo as the deployed runtime path
+- `/mnt/c/Development/repos/infra/skills` is the nested, authored and versioned canonical skills repository
+- `/mnt/c/Development/repos/infra/skills/skills` is its authored skill-content root
+- `/mnt/c/Development/system/ai/skills` should point to that content root as the deployed runtime bridge
 - imported-active skill packs may live under labeled namespaces inside that repo, such as `imported/anthropic/*` and `imported/dotnet/*`
 - infrastructure CLI wrapper skills also live in that repo, including:
   - `infra-tooling-bootstrap`
@@ -144,8 +148,8 @@ Current canonical decisions:
 
 Current canonical infrastructure tooling decisions:
 
-- pinned infra tool versions live in `/mnt/c/Development/repos/infra/skills/infra-tooling-bootstrap/references/tool-versions.env`
-- the shared bootstrap workflow lives in `/mnt/c/Development/repos/infra/skills/infra-tooling-bootstrap/scripts/bootstrap-infra-tools.sh`
+- pinned infra tool versions live in `/mnt/c/Development/repos/infra/skills/skills/infra-tooling-bootstrap/references/tool-versions.env`
+- the shared bootstrap workflow lives in `/mnt/c/Development/repos/infra/skills/skills/infra-tooling-bootstrap/scripts/bootstrap-infra-tools.sh`
 - `tflint` and `infracost` are installed into a user-local bin directory, not committed into the repo
 - `gcloud` is validated by canonical skills but remains an externally managed dependency
 - runtime platform services such as OpenCost and Kubecost are managed through infrastructure code and cluster operations, not the workstation bootstrap path
@@ -158,7 +162,7 @@ Key sources include Anthropic, dotnet, Codex User Skills, HashiCorp, and Anton B
 
 Imported-active rule:
 
-- if an imported skill pack should be visible to Codex without full promotion, place it under `repos/infra/skills/imported/<source>/...`
+- if an imported skill pack should be visible to Codex without full promotion, place it under `repos/infra/skills/skills/imported/<source>/...`
 - keep the source namespace and provenance intact
 - do not flatten imported skills into the top-level canonical namespace unless they are explicitly promoted
 
