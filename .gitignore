@@ -17,3 +17,11 @@ system/*
 system/docs/*
 !system/docs/environment/
 !system/docs/environment/**
+!system/ai/
+system/ai/*
+!system/ai/scripts/
+system/ai/scripts/*
+!system/ai/scripts/orca-repo-audit.py
+!system/ai/scripts/tests/
+system/ai/scripts/tests/*
+!system/ai/scripts/tests/test_orca_repo_audit.py
